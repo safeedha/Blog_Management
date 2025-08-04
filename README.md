@@ -23,7 +23,7 @@ Database: MongoDB / PostgreSQL
 
 Authentication: JSON Web Tokens (JWT)
 
-Image Handling: Multer (for uploads), Cloud Storage or Local (based on implementation)
+Image Handling: Cloudinary
 
 🚀 Features
 🧑‍💻 User Management
