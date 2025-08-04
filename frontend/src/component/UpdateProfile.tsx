@@ -5,7 +5,7 @@ function UpdateProfile() {
   const [username, setUsername] = useState('');
   const [phone, setPhone] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState('c c');
+  const [success, setSuccess] = useState('');
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
