@@ -67,6 +67,23 @@ export const updateProfile=async(username:string,phone:string)=>{
   }
 }
 
+
+export const getUser=async()=>{
+  try{
+      const response = await axiosInstance.get('/user/');
+     return response.data.data;
+  }
+   catch(error)
+  {
+   if (axios.isAxiosError(error)) {
+      return error.response?.data?.message || error.message;
+    } else if (error instanceof Error) {
+      return error.message;
+    } else {
+      return 'Internal server error';
+    }
+  }
+}
 export const login=async(email:string,password:string)=>{
   try{
      console.log(email,password)
