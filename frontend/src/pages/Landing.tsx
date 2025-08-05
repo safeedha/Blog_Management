@@ -5,7 +5,7 @@ const blogs = [
   {
     title: "10 Essential Tips for Successful Blogging",
     summary: "Discover strategies to grow your audience and boost engagement.",
-    image: "https://images.unsplash.com/photo-1522202195468-5bd54845f5a2?auto=format&fit=crop&w=400&q=80",
+    image: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=400&q=80",
   },
   {
     title: "Planning Your Blog Content Like a Pro",
