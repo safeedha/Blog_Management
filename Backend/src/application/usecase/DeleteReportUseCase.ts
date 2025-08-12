@@ -1,8 +1,8 @@
-import { IDeleteReportUseCase } from '../usecaseInterface/IDeleteReportUseCase';
-import { IReportRepository } from '../../domain/repositories/IReportRepository';
+import { IDeleteBlogUseCase } from '../usecaseInterface/IDeleteReportUseCase';
+import { IBlogRepository } from '../../domain/repositories/IReportRepository';
 
-export class DeleteReportUseCase implements IDeleteReportUseCase {
-  constructor(private reportRepository: IReportRepository) {}
+export class DeleteBlogUseCase implements IDeleteBlogUseCase {
+  constructor(private reportRepository: IBlogRepository) {}
 
   async execute(reportId: string): Promise<string> {
     try {

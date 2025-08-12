@@ -1,4 +1,4 @@
 import {IBlog} from '../../domain/models/blog'
-export interface ICreateReportUseCase {
+export interface ICreateBlogUseCase {
   execute(data:IBlog): Promise<string>;
 }

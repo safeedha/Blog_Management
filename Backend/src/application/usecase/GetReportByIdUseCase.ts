@@ -1,9 +1,9 @@
-import { IGetReportByIdUseCase } from '../usecaseInterface/IGetReportByIdUseCase';
-import { IReportRepository } from '../../domain/repositories/IReportRepository';
+import { IGetBlogByIdUseCase } from '../usecaseInterface/IGetReportByIdUseCase';
+import { IBlogRepository } from '../../domain/repositories/IReportRepository';
 import { IBlog } from '../../domain/models/blog';
 
-export class GetReportByIdUseCase implements IGetReportByIdUseCase {
-  constructor(private reportRepository: IReportRepository) {}
+export class GetBlogByIdUseCase implements IGetBlogByIdUseCase {
+  constructor(private reportRepository: IBlogRepository) {}
 
   async execute(reportId: string): Promise<IBlog> {
     try {

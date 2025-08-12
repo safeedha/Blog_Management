@@ -46,31 +46,46 @@ const HomePage = () => {
           <p className="text-center text-lg text-gray-500">No blogs found.</p>
         ) : (
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog) => (
-              <div
-                key={blog._id}
-                className="bg-white border-l-4 border-indigo-400 rounded-xl shadow-md p-5 hover:shadow-xl transition transform hover:-translate-y-1"
-                onClick={()=>postHandle(blog)}
-              >
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="rounded-md mb-4 w-full h-44 object-cover"
-                />
-                <h2 className="text-xl font-bold mb-1 text-gray-800">{blog.title}</h2>
-                <p className="text-sm text-gray-500 mb-2">
-                 {blog.createdAt ? new Date(blog.createdAt).toLocaleString() : "Date not available"} by <span className="font-medium text-indigo-600">{typeof blog.userId === 'object' && blog.userId?.username}</span>
-                </p>
-                <p className="text-gray-700">{blog.content.slice(0,78)}...</p>
-              </div>
-            ))}
+             {blogs.map((blog) => (
+  <div
+    key={blog._id}
+    className="bg-white border-l-4 border-indigo-400 rounded-xl shadow-md p-5 hover:shadow-xl transition transform hover:-translate-y-1 cursor-pointer"
+    onClick={() => postHandle(blog)}
+  >
+    <img
+      src={blog.image}
+      alt={blog.title}
+      className="rounded-md mb-4 w-full h-44 object-cover"
+    />
+
+    {/* Category Tag */}
+    <span className="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+      {blog.category}
+    </span>
+
+    <h2 className="text-xl font-bold mb-1 text-gray-800">{blog.title}</h2>
+
+    <p className="text-sm text-gray-500 mb-2">
+      {blog.createdAt
+        ? new Date(blog.createdAt).toLocaleString()
+        : "Date not available"}{" "}
+      by{" "}
+      <span className="font-medium text-indigo-600">
+        {typeof blog.userId === "object" && blog.userId?.username}
+      </span>
+    </p>
+
+    <p className="text-gray-700">{blog.content.slice(0, 78)}...</p>
+  </div>
+))}
+
           </div>
         )}
       </main>
 
 
       {isModalOpen && selectedBlog && (
-      <div className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
         <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-xl">
           <button
             className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl"

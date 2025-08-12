@@ -1,5 +1,5 @@
 import {IBlog} from '../../domain/models/blog'
-export interface IUpdateReportUseCase {
+export interface IUpdateBlogUseCase {
   execute(
     reportId: string,
     updateData:IBlog

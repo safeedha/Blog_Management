@@ -1,5 +1,5 @@
 import { IUpdateUserUseCase } from '../usecaseInterface/IUpdateUserUseCase ';
-import { IReportRepository } from '../../domain/repositories/IReportRepository';
+import { IBlogRepository } from '../../domain/repositories/IReportRepository';
 import { IUserRepository } from '../../domain/repositories/IUserRepository';
 
 export class UpdateUserUseCase implements IUpdateUserUseCase {

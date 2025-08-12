@@ -12,7 +12,7 @@ export class App{
     this.app=express()
     this.app.use(morgan('dev'))
       this.app.use(cors({
-      origin: 'https://blog-management-rose.vercel.app',
+      origin:'https://blog-management-rose.vercel.app',
       credentials: true
     }));
     this.app.use(express.json());

@@ -1,8 +1,8 @@
-import { IReportRepository } from '../../../domain/repositories/IReportRepository';
+import { IBlogRepository } from '../../../domain/repositories/IReportRepository';
 import { IBlog } from '../../../domain/models/blog';
 import { BlogModel } from '../schemas/blogSchema';
 
-export class ReportRepository implements IReportRepository {
+export class BlogRepository implements IBlogRepository {
   
   async create(data: IBlog): Promise<string> {
     try {

@@ -31,7 +31,14 @@ function Article() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+      if (title.trim().length < 5 || title.trim().length > 100) {
+      toast.error("Title must be between 5 and 100 characters");
+      return;
+    }
+    if (content.trim().length < 20 || content.trim().length > 5000) {
+      toast.error("Content must be between 20 and 5000 characters");
+      return;
+    }
     const formData = new FormData();
     formData.append("file", imagePreview as string);
     formData.append("upload_preset", "products");
@@ -207,7 +214,7 @@ function Article() {
               type="submit"
               className="bg-indigo-600 text-white px-5 py-2 rounded hover:bg-indigo-700 transition font-semibold"
             >
-              Publish Blog
+             Save Edit
             </button>
           </div>
         </form>

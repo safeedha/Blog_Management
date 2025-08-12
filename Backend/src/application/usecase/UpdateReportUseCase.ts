@@ -1,9 +1,9 @@
-import { IUpdateReportUseCase } from '../usecaseInterface/IUpdateReportUseCase';
-import { IReportRepository } from '../../domain/repositories/IReportRepository';
+import { IUpdateBlogUseCase } from '../usecaseInterface/IUpdateReportUseCase';
+import { IBlogRepository } from '../../domain/repositories/IReportRepository';
 import { IBlog } from '../../domain/models/blog';
 
-export class UpdateReportUseCase implements IUpdateReportUseCase {
-  constructor(private reportRepository: IReportRepository) {}
+export class UpdateBlogUseCase implements IUpdateBlogUseCase {
+  constructor(private reportRepository: IBlogRepository) {}
 
   async execute(
     reportId: string,

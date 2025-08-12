@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-import { ICreateReportUseCase } from '../../application/usecaseInterface/ICreateReportUseCase';
-import { IGetAllReportsUseCase } from '../../application/usecaseInterface/IGetAllReportsUseCase';
-import { IGetReportsByUserIdUseCase } from '../../application/usecaseInterface/IGetReportsByUserIdUseCase';
-import { IGetReportByIdUseCase } from '../../application/usecaseInterface/IGetReportByIdUseCase';
-import { IDeleteReportUseCase } from '../../application/usecaseInterface/IDeleteReportUseCase';
-import { IUpdateReportUseCase } from '../../application/usecaseInterface/IUpdateReportUseCase';
+import { ICreateBlogUseCase } from '../../application/usecaseInterface/ICreateReportUseCase';
+import { IGetAllBlogsUseCase } from '../../application/usecaseInterface/IGetAllReportsUseCase';
+import { IGetBlogsByUserIdUseCase } from '../../application/usecaseInterface/IGetReportsByUserIdUseCase';
+import { IGetBlogByIdUseCase } from '../../application/usecaseInterface/IGetReportByIdUseCase';
+import { IDeleteBlogUseCase } from '../../application/usecaseInterface/IDeleteReportUseCase';
+import { IUpdateBlogUseCase } from '../../application/usecaseInterface/IUpdateReportUseCase';
 
 interface IRequest extends Request {
   userId: string;
@@ -12,12 +12,12 @@ interface IRequest extends Request {
 
 export class ReportController {
   constructor(
-    private createReport: ICreateReportUseCase,
-    private getAllReports: IGetAllReportsUseCase,
-    private getReportsByUserId: IGetReportsByUserIdUseCase,
-    private getReportById: IGetReportByIdUseCase,
-    private deleteReport: IDeleteReportUseCase,
-    private updateReport: IUpdateReportUseCase
+    private createReport: ICreateBlogUseCase,
+    private getAllReports: IGetAllBlogsUseCase,
+    private getReportsByUserId: IGetBlogsByUserIdUseCase,
+    private getReportById: IGetBlogByIdUseCase,
+    private deleteReport: IDeleteBlogUseCase,
+    private updateReport: IUpdateBlogUseCase
   ) {}
 
   async create(req: IRequest, res: Response): Promise<void> {

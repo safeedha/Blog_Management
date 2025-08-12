@@ -3,15 +3,15 @@ import { Request} from 'express';
 import { AuthController } from '../controller/authController';
 import { ReportController } from '../controller/reportController';
 import { UserRepository } from '../../infrastructure/database/repositories/UserRepository';
-import { ReportRepository } from '../../infrastructure/database/repositories/ReportRepository';
+import { BlogRepository } from '../../infrastructure/database/repositories/ReportRepository';
 import { CreateUser } from '../../application/usecase/createUser';
 import { LoginUser } from '../../application/usecase/loginUser';
 import { CreateReportUseCase } from '../../application/usecase/CreateReportUseCase';
-import { GetAllReportsUseCase } from '../../application/usecase/GetAllReportsUseCase';
-import { GetReportsByUserIdUseCase } from '../../application/usecase/GetReportsByUserIdUseCase';
-import { GetReportByIdUseCase } from '../../application/usecase/GetReportByIdUseCase';
-import { DeleteReportUseCase } from '../../application/usecase/DeleteReportUseCase';
-import { UpdateReportUseCase } from '../../application/usecase/UpdateReportUseCase';
+import { GetAllBlogsUseCase } from '../../application/usecase/GetAllReportsUseCase';
+import { GetBlogsByUserIdUseCase } from '../../application/usecase/GetReportsByUserIdUseCase';
+import { GetBlogByIdUseCase } from '../../application/usecase/GetReportByIdUseCase';
+import { DeleteBlogUseCase } from '../../application/usecase/DeleteReportUseCase';
+import { UpdateBlogUseCase } from '../../application/usecase/UpdateReportUseCase';
 import {ChangePasswordUseCase} from '../../application/usecase/ChangePassword';
 import{UpdateUserUseCase} from '../../application/usecase/UpdateUserUseCase';
 import {GetUser} from '../../application/usecase/GetUser';
@@ -22,7 +22,7 @@ interface IRequest extends Request {
 }
 // Repositories
 const userRepository = new UserRepository();
-const reportRepository = new ReportRepository();
+const reportRepository = new BlogRepository();
 
 // Auth UseCases & Controller
 const createUser = new CreateUser(userRepository);
@@ -34,11 +34,11 @@ const auth = new AuthController(createUser, loginUser,changePasswordUseCase,upda
 
 // Report UseCases & Controller
 const createReport = new CreateReportUseCase(reportRepository);
-const getAllReports = new GetAllReportsUseCase(reportRepository);
-const getReportsByUserId = new GetReportsByUserIdUseCase(reportRepository);
-const getReportById = new GetReportByIdUseCase(reportRepository);
-const deleteReport = new DeleteReportUseCase(reportRepository);
-const updateReport = new UpdateReportUseCase(reportRepository);
+const getAllReports = new GetAllBlogsUseCase(reportRepository);
+const getReportsByUserId = new GetBlogsByUserIdUseCase(reportRepository);
+const getReportById = new GetBlogByIdUseCase(reportRepository);
+const deleteReport = new DeleteBlogUseCase(reportRepository);
+const updateReport = new UpdateBlogUseCase(reportRepository);
 
 const report = new ReportController(
   createReport,

@@ -29,12 +29,24 @@ const CreateBlog = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+
+    if (title.trim().length < 5 || title.trim().length > 100) {
+      toast.error("Title must be between 5 and 100 characters");
+      return;
+    }
+
+ 
+    if (content.trim().length < 20 || content.trim().length > 5000) {
+      toast.error("Content must be between 20 and 5000 characters");
+      return;
+    }
+
     if (!image) {
       toast.error("Please select an image");
       return;
     }
 
-    setLoading(true); // 👈 Start spinner
+    setLoading(true); 
 
     try {
       const formData = new FormData();
@@ -66,7 +78,7 @@ const CreateBlog = () => {
       console.error("Error creating blog:", error);
       toast.error("Failed to create blog");
     } finally {
-      setLoading(false); // 👈 Stop spinner
+      setLoading(false); 
     }
   };
 
@@ -77,7 +89,7 @@ const CreateBlog = () => {
         <h1 className="text-3xl font-bold text-indigo-700 mb-8">Create New Blog</h1>
 
         <form className="bg-white rounded-lg shadow-lg p-6 space-y-6" onSubmit={handleSubmit}>
-          {/* Title */}
+ 
           <div>
             <label className="block text-gray-700 font-semibold mb-2">Title</label>
             <input
@@ -90,7 +102,6 @@ const CreateBlog = () => {
             />
           </div>
 
-          {/* Image Upload + Preview */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">Upload Image</label>
             <input
@@ -109,7 +120,6 @@ const CreateBlog = () => {
             )}
           </div>
 
-          {/* Content */}
           <div>
             <label className="block text-gray-700 font-semibold mb-2">Content</label>
             <textarea
@@ -122,7 +132,7 @@ const CreateBlog = () => {
             ></textarea>
           </div>
 
-          {/* Category */}
+       
           <div>
             <label className="block text-gray-700 font-semibold mb-2">Category</label>
             <select
@@ -145,7 +155,6 @@ const CreateBlog = () => {
             </select>
           </div>
 
-          {/* Submit */}
           <div className="text-right">
             <button
               type="submit"

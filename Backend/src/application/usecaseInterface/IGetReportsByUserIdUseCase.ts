@@ -1,4 +1,4 @@
 import {IBlog} from '../../domain/models/blog'
-export interface IGetReportsByUserIdUseCase {
+export interface IGetBlogsByUserIdUseCase {
   execute(userId: string): Promise<IBlog[]>;
 }
